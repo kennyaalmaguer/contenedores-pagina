@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>COTENEDOR</title>
+</head>
+<body bgcolor="#FFF7DA">
+	
+	<img src="imagenes/hola.png" width="100%"></img>
+<form onsubmit="return guardarTexto();">
+  <p><center>
+    <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
+    <input type="text" name="textfield" id="textfield">
+  </p>
+  <p style="border-bottom-color: green">
+    <input type="submit" name="submit" id="submit" value="Enviar">
+  </p>
+</form>
+<button onclick="descargarTextos()">Descargar Textos</button>
+</center>
+<script>
+function guardarTexto() {
+  var texto = document.getElementById("textfield").value;
+  var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
+  textosGuardados.push(texto);
+  localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
+  return true;
+}
+
+function descargarTextos() {
+  var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados"));
+  if (textosGuardados && textosGuardados.length > 0) {
+    var contenidoArchivo = textosGuardados.join('\n');
+    var elemento = document.createElement('a');
+    elemento.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
+    elemento.setAttribute('download', 'textos_guardados.txt');
+    elemento.style.display = 'none';
+    document.body.appendChild(elemento);
+    elemento.click();
+    document.body.removeChild(elemento);
+  } else {
+    alert("No hay textos guardados para descargar.");
+  }
+}
+</script>
+</body>
+</html>
+
