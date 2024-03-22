@@ -3,46 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>COTENEDOR</title>
-<style>
-  
-  @keyframes respiracion {
-    0% { 
-      transform: scale(1);
-      filter: blur(0); 
-    }
-    50% { 
-      transform: scale(1.2);
-      filter: blur(0); 
-    }
-    100% { 
-      transform: scale(1);
-      filter: blur(2px); 
-    }
-  }
-
-  @keyframes cambioColorFondo {
-    0% {
-      background-color: cyan;
-    }
-    33% {
-      background-color: magenta;
-    }
-    66% {
-      background-color: yellow;
-    }
-    100% {
-      background-color: cyan;
-    }
-  }
-
-  body {
-    animation: cambioColorFondo 8s infinite;
-  }
-  
-  img {
-    animation: respiracion 3s infinite alternate;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   
@@ -58,30 +19,6 @@
   </form>
   <button onclick="descargarTextos()">Descargar Textos</button>
   </center>
-  <script>
-    function guardarTexto() {
-      var texto = document.getElementById("textfield").value;
-      var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
-      textosGuardados.push(texto);
-      localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
-      return true;
-    }
-
-    function descargarTextos() {
-      var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados"));
-      if (textosGuardados && textosGuardados.length > 0) {
-        var contenidoArchivo = textosGuardados.join('\n');
-        var elemento = document.createElement('a');
-        elemento.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
-        elemento.setAttribute('download', 'textos_guardados.txt');
-        elemento.style.display = 'none';
-        document.body.appendChild(elemento);
-        elemento.click();
-        document.body.removeChild(elemento);
-      } else {
-        alert("No hay textos guardados para descargar.");
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
