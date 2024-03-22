@@ -4,13 +4,24 @@
 <meta charset="UTF-8">
 <title>COTENEDOR</title>
 <style>
+  /* Define la animación llamada 'respiracion' */
   @keyframes respiracion {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% { 
+      transform: scale(1);
+      filter: blur(0); /* Sin desenfoque al inicio */
+    }
+    50% { 
+      transform: scale(1.2);
+      filter: blur(0); /* Sin desenfoque en la mitad */
+    }
+    100% { 
+      transform: scale(1);
+      filter: blur(2px); /* Desenfoque al final */
+    }
   }
+  /* Aplica la animación 'respiracion' a la imagen */
   img {
-    animation: respiracion 3s infinite alternate; 
+    animation: respiracion 3s infinite alternate;
   }
 </style>
 </head>
