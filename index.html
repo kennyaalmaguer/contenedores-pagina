@@ -4,30 +4,49 @@
 <meta charset="UTF-8">
 <title>COTENEDOR</title>
 <style>
-  /* Define la animación llamada 'respiracion' */
+  
   @keyframes respiracion {
     0% { 
       transform: scale(1);
-      filter: blur(0); /* Sin desenfoque al inicio */
+      filter: blur(0); 
     }
     50% { 
       transform: scale(1.2);
-      filter: blur(0); /* Sin desenfoque en la mitad */
+      filter: blur(0); 
     }
     100% { 
       transform: scale(1);
-      filter: blur(2px); /* Desenfoque al final */
+      filter: blur(2px); 
     }
   }
-  /* Aplica la animación 'respiracion' a la imagen */
+
+  @keyframes cambioColorFondo {
+    0% {
+      background-color: cyan;
+    }
+    33% {
+      background-color: magenta;
+    }
+    66% {
+      background-color: yellow;
+    }
+    100% {
+      background-color: cyan;
+    }
+  }
+
+  body {
+    animation: cambioColorFondo 8s infinite;
+  }
+  
   img {
     animation: respiracion 3s infinite alternate;
   }
 </style>
 </head>
-<body bgcolor="#FFF7DA">
+<body>
   
-  <img src="hola.png" width="100%"></img>
+  <img src="hola.png" width="100%">
   <form onsubmit="return guardarTexto();">
     <p><center>
       <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
