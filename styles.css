@@ -1,38 +1,8 @@
-@keyframes respiracion {
-    0% { 
-      transform: scale(1);
-      filter: blur(0); 
-    }
-    50% { 
-      transform: scale(1.2);
-      filter: blur(0); 
-    }
-    100% { 
-      transform: scale(1);
-      filter: blur(2px); 
-    }
-  }
+body{
+  margin : 0;
+  background: rgb(204, 204, 135);
+}
+
+
   
-  @keyframes cambioColorFondo {
-    0% {
-      background-color: cyan;
-    }
-    33% {
-      background-color: magenta;
-    }
-    66% {
-      background-color: yellow;
-    }
-    100% {
-      background-color: cyan;
-    }
-  }
-  
-  body {
-    animation: cambioColorFondo 8s infinite;
-  }
-  
-  img {
-    animation: respiracion 3s infinite alternate;
-  }
   
