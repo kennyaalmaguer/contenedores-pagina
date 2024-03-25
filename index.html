@@ -4,15 +4,42 @@
     <meta charset="UTF-8">
     <title>COTENEDOR</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+            color: white;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container" >
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
+  <div class="container">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+  </div>
+
+  <div class="content">
+    <form onsubmit="return guardarTexto();">
+      <p>
+        <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
+        <input type="text" name="textfield" id="textfield">
+      </p>
+      <p style="border-bottom-color: green">
+        <input type="submit" name="submit" id="submit" value="Enviar">
+      </p>
+    </form>
+    <button onclick="descargarTextos()">Descargar Textos</button>
   </div>
 
   <script type="text/javascript">
@@ -28,50 +55,31 @@
       layer[2].style.transform = 'translate(' + X / 100*-4 + 'px, ' + Y / 100*-4 + 'px)';
       layer[3].style.transform = 'translate(' + X / 100*-6 + 'px, ' + Y / 100*-6 + 'px)';
       layer[4].style.transform = 'translate(' + X / 100*-8 + 'px, ' + Y / 100*-8 + 'px)';
-      
+    }
+
+    function guardarTexto() {
+      var texto = document.getElementById("textfield").value;
+      var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
+      textosGuardados.push(texto);
+      localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
+      return true;
+    }
+
+    function descargarTextos() {
+      var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados"));
+      if (textosGuardados && textosGuardados.length > 0) {
+        var contenidoArchivo = textosGuardados.join('\n');
+        var elemento = document.createElement('a');
+        elemento.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
+        elemento.setAttribute('download', 'textos_guardados.txt');
+        elemento.style.display = 'none';
+        document.body.appendChild(elemento);
+        elemento.click();
+        document.body.removeChild(elemento);
+      } else {
+        alert("No hay textos guardados para descargar.");
+      }
     }
   </script>
-  
-
- 
-
-	<!--<img src="hola.png" width="100%"></img>-->
-<form onsubmit="return guardarTexto();">
-  <p><center>
-    <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
-    <input type="text" name="textfield" id="textfield">
-  </p>
-  <p style="border-bottom-color: green">
-    <input type="submit" name="submit" id="submit" value="Enviar">
-  </p>
-</form>
-<button onclick="descargarTextos()">Descargar Textos</button>
-</center>
-
-<script>
-function guardarTexto() {
-  var texto = document.getElementById("textfield").value;
-  var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
-  textosGuardados.push(texto);
-  localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
-  return true;
-}
-
-function descargarTextos() {
-  var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados"));
-  if (textosGuardados && textosGuardados.length > 0) {
-    var contenidoArchivo = textosGuardados.join('\n');
-    var elemento = document.createElement('a');
-    elemento.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
-    elemento.setAttribute('download', 'textos_guardados.txt');
-    elemento.style.display = 'none';
-    document.body.appendChild(elemento);
-    elemento.click();
-    document.body.removeChild(elemento);
-  } else {
-    alert("No hay textos guardados para descargar.");
-  }
-}
-</script>
 </body>
 </html>

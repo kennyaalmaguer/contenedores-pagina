@@ -34,6 +34,8 @@ body{
 .layer:nth-child(3){
   background-image: url(foto2.png);
   background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 30%;
 }
 
 .layer:nth-child(4){
@@ -44,6 +46,53 @@ body{
 .layer:nth-child(5){
   background-image: url(foto4.png);
   background-repeat: no-repeat;
+}
+
+
+
+
+button,
+input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50; 
+  color: white;
+  border: none; 
+  border-radius: 15px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ea
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #55c2fc;
+}
+
+
+button.descargar {
+  margin-top: 10px; 
+}
+
+
+label,
+input[type="text"] {
+  padding: 10px 20px; 
+  font-size: 16px; 
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  border-radius: 15px; 
+  
+
+}
+
+
+label {
+  font-weight: bold; 
+}
+
+input[type="text"] {
+  margin-top: 10px; 
 }
 
   
