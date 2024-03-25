@@ -1,8 +1,50 @@
 body{
   margin : 0;
-  background: rgb(204, 204, 135);
+  padding: 0;
+  box-sizing: border-box;
+  
 }
 
+.container{
+  position: relative;
+  height:100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(to right,#00014a,#281f6f);
+}
+
+.layer{
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+ 
+}
+
+.layer:nth-child(1){
+  background-image: url(hola.png);
+}
+
+.layer:nth-child(2){
+  background-image: url(foto1.png);
+  background-repeat:no-repeat;
+}
+
+.layer:nth-child(3){
+  background-image: url(foto2.png);
+  background-repeat: no-repeat;
+}
+
+.layer:nth-child(4){
+  background-image: url(foto3.png);
+  background-repeat: no-repeat;
+}
+
+.layer:nth-child(5){
+  background-image: url(foto4.png);
+  background-repeat: no-repeat;
+}
 
   
   

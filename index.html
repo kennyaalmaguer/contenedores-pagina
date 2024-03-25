@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>COTENEDOR</title>
+    <meta charset="UTF-8">
+    <title>COTENEDOR</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body bgcolor="#FFF7DA">
+<body>
 
-	<img src="hola.png" width="100%"></img>
+  <div class="container" >
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+  </div>
+
+  <script type="text/javascript">
+    let container = document.querySelector('.container');
+    let layer = document.querySelectorAll('.layer');
+  
+    container.onmousemove = function(e) {
+      let X = e.pageX;
+      let Y = e.pageY; 
+  
+      layer[0].style.transform = 'translate(' + X / 100 + 'px, ' + Y / 100 + 'px)';
+      layer[1].style.transform = 'translate(' + X / 100*-2 + 'px, ' + Y / 100*-2 + 'px)';
+      layer[2].style.transform = 'translate(' + X / 100*-4 + 'px, ' + Y / 100*-4 + 'px)';
+      layer[3].style.transform = 'translate(' + X / 100*-6 + 'px, ' + Y / 100*-6 + 'px)';
+      layer[4].style.transform = 'translate(' + X / 100*-8 + 'px, ' + Y / 100*-8 + 'px)';
+      
+    }
+  </script>
+  
+
+ 
+
+	<!--<img src="hola.png" width="100%"></img>-->
 <form onsubmit="return guardarTexto();">
   <p><center>
     <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
@@ -18,6 +47,7 @@
 </form>
 <button onclick="descargarTextos()">Descargar Textos</button>
 </center>
+
 <script>
 function guardarTexto() {
   var texto = document.getElementById("textfield").value;
