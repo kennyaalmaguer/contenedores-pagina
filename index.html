@@ -3,86 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <title>COTENEDOR</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            background-image: linear-gradient(to right, #00014a, #281f6f);
+        }
+
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .layer:nth-child(1) {
+            background-image: url(hola.png);
+            background-repeat: no-repeat;
+            background-position: 50% 30%;
+            background-size: 130%;
+            z-index: 5;
+        }
+
+        .layer:nth-child(2) {
+            background-image: url(foto1.png);
+            background-repeat: no-repeat;
+            background-position: 99% 5%;
+            background-size: 15%;
+            z-index: 6;
+            filter: blur(1px);
+            opacity: 0.9;
+        }
+
+        .layer:nth-child(3) {
+            background-image: url(foto2.png);
+            background-repeat: no-repeat;
+            background-position: 92% 75%;
+            background-size: 22%;
+            z-index: 7;
+            filter: blur(1.5px);
+            opacity: 0.85;
+        }
+
+        .layer:nth-child(4) {
+            background-image: url(foto3.png);
+            background-repeat: no-repeat;
+            background-position: 5% 10%;
+            z-index: 8;
+            filter: blur(1px);
+            opacity: 0.9;
+        }
+
+        .layer:nth-child(5) {
+            background-image: url(foto4.png);
+            background-repeat: no-repeat;
+            background-position: 30% 80%;
+            background-size: 10%;
+            z-index: 9;
+            filter: blur(3.5px);
+            opacity: 0.55;
+        }
+
+        .layer:nth-child(6) {
+            background-image: url(fachada.png);
+            background-repeat: repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110vw;
+            height: 110vh;
+            z-index: 0;
+            filter: blur(5px);
+        }
+
         .content {
             position: absolute;
-            bottom: 20px; 
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-            z-index: 1;
+            z-index: 10;
             color: white;
         }
-        .buttons {
-            margin-top: 20px;
+
+        button,
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2f73ab;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover,
+        input[type="submit"]:hover {
+            background-color: #d52a7a;
+        }
+
+        button.descargar {
+            margin-top: 10px;
+        }
+
+        label,
+        input[type="text"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2f73ab;
+            color: white;
+            border: none;
+            border-radius: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
     <div class="layer"></div>
     <div class="layer"></div>
     <div class="layer"></div>
     <div class="layer"></div>
     <div class="layer"></div>
     <div class="layer"></div>
-  </div>
+</div>
 
-  <div class="content">
+<div class="content">
     <form>
-      <p>
-        <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
-        <input type="text" name="textfield" id="textfield">
-      </p>
-      <p style="border-bottom-color: green">
-        <button type="button" onclick="guardarTexto()">Enviar</button>
-      </p>
+        <p>
+            <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
+            <input type="text" name="textfield" id="textfield">
+        </p>
+        <p style="border-bottom-color: green">
+            <button type="button" onclick="guardarTexto()">Enviar</button>
+        </p>
     </form>
     <button onclick="descargarTextos()">Descargar Textos</button>
-  </div>
+</div>
 
-  <script type="text/javascript">
+<script type="text/javascript">
     let container = document.querySelector('.container');
     let layer = document.querySelectorAll('.layer');
-  
+
     container.onmousemove = function(e) {
-      let X = e.pageX;
-      let Y = e.pageY; 
-  
-      layer[0].style.transform = 'translate(' + X / 100 + 'px, ' + Y / 100 + 'px)';
-      layer[1].style.transform = 'translate(' + X / 100*-2 + 'px, ' + Y / 100*-2 + 'px)';
-      layer[2].style.transform = 'translate(' + X / 100*-4 + 'px, ' + Y / 100*-4 + 'px)';
-      layer[3].style.transform = 'translate(' + X / 100*-6 + 'px, ' + Y / 100*-6 + 'px)';
-      layer[4].style.transform = 'translate(' + X / 100*-8 + 'px, ' + Y / 100*-8 + 'px)';
-      layer[5].style.transform = 'translate(' + X / 100*-10 + 'px, ' + Y / 100*-10 + 'px)';
+        let X = e.pageX;
+        let Y = e.pageY;
+
+        layer[0].style.transform = 'translate(' + X / 100 + 'px, ' + Y / 100 + 'px)';
+        layer[1].style.transform = 'translate(' + X / 100 * -2 + 'px, ' + Y / 100 * -2 + 'px)';
+        layer[2].style.transform = 'translate(' + X / 100 * -4 + 'px, ' + Y / 100 * -4 + 'px)';
+        layer[3].style.transform = 'translate(' + X / 100 * -6 + 'px, ' + Y / 100 * -6 + 'px)';
+        layer[4].style.transform = 'translate(' + X / 100 * -8 + 'px, ' + Y / 100 * -8 + 'px)';
+        layer[5].style.transform = 'translate(' + X / 100 * -10 + 'px, ' + Y / 100 * -10 + 'px)';
     }
 
     function guardarTexto() {
-      var texto = document.getElementById("textfield").value;
-      var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
-      textosGuardados.push(texto);
-      localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
-      alert("Texto guardado correctamente.");
-      document.getElementById("textfield").value = ""; // Limpiar el campo de texto después de guardar
+        var texto = document.getElementById("textfield").value;
+        var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
+        textosGuardados.push(texto);
+        localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
+        alert("Texto guardado correctamente.");
+        document.getElementById("textfield").value = ""; // Limpiar el campo de texto después de guardar
     }
 
     function descargarTextos() {
-      var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados"));
-      if (textosGuardados && textosGuardados.length > 0) {
-        var contenidoArchivo = textosGuardados.join('\n');
-        var elemento = document.createElement('a');
-        elemento.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
-        elemento.setAttribute('download', 'textos_guardados.txt');
-        elemento.style.display = 'none';
-        document.body.appendChild(elemento);
-        elemento.click();
-        document.body.removeChild(elemento);
-      } else {
-        alert("No hay textos guardados para descargar.");
-      }
+        var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados"));
+        if (textosGuardados && textosGuardados.length > 0) {
+            var contenidoArchivo = textosGuardados.join('\n');
+            var elemento = document.createElement('a');
+            elemento.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
+            elemento.setAttribute('download', 'textos_guardados.txt');
+            elemento.style.display = 'none';
+            document.body.appendChild(elemento);
+            elemento.click();
+            document.body.removeChild(elemento);
+        } else {
+            alert("No hay textos guardados para descargar.");
+        }
     }
-  </script>
+</script>
 </body>
 </html>
