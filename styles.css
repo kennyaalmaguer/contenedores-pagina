@@ -2,9 +2,7 @@ body{
   margin : 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
-
 .container{
   position: relative;
   height:100vh;
@@ -12,25 +10,20 @@ body{
   overflow: hidden;
   background-image: linear-gradient(to right,#00014a,#281f6f);
 }
-
 .layer{
   position: absolute;
   top:0;
   left: 0;
   height: 100%;
   width: 100%;
- 
 }
-
 .layer:nth-child(1){
   background-image: url(hola.png);
   background-repeat: no-repeat;
   background-position: 50% 30%;
   background-size: 130%;
   z-index: 5;
-  
 }
-
 .layer:nth-child(2){
   background-image: url(foto1.png);
   background-repeat:no-repeat;
@@ -40,7 +33,6 @@ body{
   filter: blur(1px); 
   opacity: 0.9; 
 }
-
 .layer:nth-child(3){
   background-image: url(foto2.png);
   background-repeat: no-repeat;
@@ -50,7 +42,6 @@ body{
   filter: blur(1.5px); 
   opacity: 0.85; 
 }
-
 .layer:nth-child(4){
   background-image: url(foto3.png);
   background-repeat: no-repeat;
@@ -59,7 +50,6 @@ body{
   filter: blur(1px);
   opacity: 0.9; 
 }
-
 .layer:nth-child(5){
   background-image: url(foto4.png);
   background-repeat: no-repeat;
@@ -69,7 +59,6 @@ body{
   filter: blur(3.5px);
   opacity: 0.55; 
 }
-
 .layer:nth-child(6) {
   background-image: url(fachada.png);
   background-repeat: repeat;
@@ -82,15 +71,15 @@ body{
   z-index: 0;
   filter: blur(5px); 
 }
-
-
-
-
-
-
-
-
-
+.content {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  color: white;
+}
 button,
 input[type="submit"] {
   padding: 10px 20px;
@@ -102,18 +91,13 @@ input[type="submit"] {
   cursor: pointer; 
   transition: background-color 0.3s ea
 }
-
 button:hover,
 input[type="submit"]:hover {
-  background-color: #55c2fc;
+  background-color: #d52a7a;
 }
-
-
 button.descargar {
   margin-top: 10px; 
 }
-
-
 label,
 input[type="text"] {
   padding: 10px 20px; 
@@ -122,18 +106,11 @@ input[type="text"] {
   color: white; 
   border: none; 
   border-radius: 15px; 
-  
 
 }
-
-
 label {
   font-weight: bold; 
 }
-
 input[type="text"] {
   margin-top: 10px; 
-}
-
-  
-  
+} 

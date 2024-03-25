@@ -1,5 +1,6 @@
 // JavaScript Document
 function guardarTexto() {
+  
   var texto = document.getElementById("textfield").value;
   localStorage.setItem("textoGuardado", texto);
   return true;

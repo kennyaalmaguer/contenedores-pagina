@@ -31,13 +31,13 @@
   </div>
 
   <div class="content">
-    <form onsubmit="return guardarTexto();">
+    <form>
       <p>
         <label for="textfield"><font face="Arial"><strong>REGISTRO 1:</strong></font></label>
         <input type="text" name="textfield" id="textfield">
       </p>
       <p style="border-bottom-color: green">
-        <input type="submit" name="submit" id="submit" value="Enviar">
+        <button type="button" onclick="guardarTexto()">Enviar</button>
       </p>
     </form>
     <button onclick="descargarTextos()">Descargar Textos</button>
@@ -64,7 +64,8 @@
       var textosGuardados = JSON.parse(localStorage.getItem("textosGuardados")) || [];
       textosGuardados.push(texto);
       localStorage.setItem("textosGuardados", JSON.stringify(textosGuardados));
-      return true;
+      alert("Texto guardado correctamente.");
+      document.getElementById("textfield").value = ""; // Limpiar el campo de texto después de guardar
     }
 
     function descargarTextos() {
