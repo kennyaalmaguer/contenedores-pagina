@@ -7,9 +7,9 @@
     <style>
         .content {
             position: absolute;
-            top: 50%;
+            bottom: 20px; 
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             text-align: center;
             z-index: 1;
             color: white;
@@ -22,6 +22,7 @@
 <body>
 
   <div class="container">
+    <div class="layer"></div>
     <div class="layer"></div>
     <div class="layer"></div>
     <div class="layer"></div>
@@ -55,6 +56,7 @@
       layer[2].style.transform = 'translate(' + X / 100*-4 + 'px, ' + Y / 100*-4 + 'px)';
       layer[3].style.transform = 'translate(' + X / 100*-6 + 'px, ' + Y / 100*-6 + 'px)';
       layer[4].style.transform = 'translate(' + X / 100*-8 + 'px, ' + Y / 100*-8 + 'px)';
+      layer[5].style.transform = 'translate(' + X / 100*-10 + 'px, ' + Y / 100*-10 + 'px)';
     }
 
     function guardarTexto() {
